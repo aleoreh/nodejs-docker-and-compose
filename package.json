@@ -1,0 +1,15 @@
+{
+  "name": "nodejs-docker-and-compose",
+  "version": "1.0.0",
+  "description": "Перед тем как приступить к выполнению проектной работы разместите в репозитории исходный код фронтенд и бэкенд частей сервиса КупиПодариДай, реализованного вами ранее.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compose:build": "docker compose build",
+    "compose:up": "docker compose up",
+    "compose:all": "docker compose up --force-recreate --build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
