@@ -32,4 +32,4 @@ services:
     restart: always
     volumes:
       - ${NGINX_CONFD_DIR}:/etc/nginx/conf.d:ro
-      - ${LETSENCRYPT_CONFIG_DIR}:/etc/letsencrypt:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro
