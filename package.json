@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compose:build": "docker compose build",
-    "compose:up": "docker compose up",
-    "compose:all": "docker compose up --force-recreate --build"
+    "compose:up": "docker compose down && docker compose up -d"
   },
   "keywords": [],
   "author": "",
