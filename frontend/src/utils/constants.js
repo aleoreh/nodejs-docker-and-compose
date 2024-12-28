@@ -1,4 +1,4 @@
-export const URL = "http://api.localhost";
+export const URL = "http://api.aleoreh-final.nomorepartiesco.ru";
 
 export const MINIMUM_PASSWORD_LENGTH = 3;
 export const MINIMUM_USERNAME_LENGTH = 3;
