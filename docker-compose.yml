@@ -26,5 +26,6 @@ services:
     restart: always
     volumes:
       - type: bind
-        source: ./frontend/nginx/conf.d
+        source: ${NGINX_CONFD_DIR}
         target: /etc/nginx/conf.d
+        read_only: true
