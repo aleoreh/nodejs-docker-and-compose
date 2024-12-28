@@ -1,6 +1,7 @@
 services:
   db:
     image: postgres
+    container_name: db
     restart: always
     # set shared memory limit when using docker-compose
     shm_size: 128mb
@@ -10,15 +11,17 @@ services:
     env_file: .env
 
   backend:
+    container_name: backend
+    build: ./backend
     restart: always
     depends_on:
       - db
-    build: ./backend
     env_file: .env
     expose:
       - ${BACKEND_PORT}
 
   frontend:
+    container_name: frontend
     build: ./frontend
     expose:
       - ${FRONTEND_PORT}
@@ -28,4 +31,4 @@ services:
     restart: always
     volumes:
       - ${NGINX_CONFD_DIR}:/etc/nginx/conf.d:ro
-      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - ${LETSENCRYPT_CONFIG_DIR}:/etc/letsencrypt:ro
