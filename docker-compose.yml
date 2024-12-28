@@ -10,6 +10,7 @@ services:
     env_file: .env
 
   backend:
+    restart: always
     depends_on:
       - db
     build: ./backend
@@ -30,6 +31,7 @@ services:
       - /etc/letsencrypt:/etc/letsencrypt:ro
 
   certbot:
+    restart: always
     image: certbot/certbot:latest
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt:rw
