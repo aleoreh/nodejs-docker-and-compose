@@ -23,9 +23,14 @@ services:
       - ${FRONTEND_PORT}
     ports:
       - "80:8001"
+      - "443:443"
     restart: always
     volumes:
-      - type: bind
-        source: ${NGINX_CONFD_DIR}
-        target: /etc/nginx/conf.d
-        read_only: true
+      - ${NGINX_CONFD_DIR}:/etc/nginx/conf.d:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt:rw
+      - /var/lib/letsencrypt:/var/lib/letsencrypt:rw
