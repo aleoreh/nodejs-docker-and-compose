@@ -14,5 +14,3 @@ FROM nginx:latest AS production
 WORKDIR /usr/share/nginx/html
 
 COPY --from=builder /usr/share/nginx/html/build ./
-
-COPY ./nginx/conf.d/* /etc/nginx/conf.d/
